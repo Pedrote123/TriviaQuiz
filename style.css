@@ -1,0 +1,157 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(251, 202, 255);
+}
+body::after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.04),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.04)
+    );
+    background-size: 100% 4px, 30px 100%;
+}
+
+::selection{
+    background-color: rgb(255, 237, 71);
+}
+
+
+#mainContainer{
+    width: 50%;
+    height: 60%;
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 0px 5px rgb(90, 90, 90);
+    user-select: none;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Press Start 2P', system-ui;
+    color: rgb(255, 237, 71);
+}
+#mainContainer::before{
+    content: "";
+    position: absolute;
+    top: -77.5%;
+    left: -20%;
+    bottom: 0;
+    width: 140%;
+    height: 230%;
+    background-image: url('destello_verde1.svg');
+    background-position: center;
+    z-index: -1;
+    animation-name: rotation;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotation{
+    0%{transform: rotate(0)}
+    100%{transform: rotate(180deg)}
+}
+
+
+.cQuestion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95%;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 3px 3px 0px black, 5px 5px 0px black;
+}
+
+#loadingBar{
+    height: 5%;
+    background-color: rgb(255, 237, 71);
+    animation-name: loadingBar;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes loadingBar{
+
+    0% {width: 100%;}
+    50%{
+        width: 50%;
+        left: 0;
+    }
+    100%{
+        width: 0%;
+        left: 0;
+    }
+}
+
+
+#form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 7%;
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 0px 5px rgb(90, 90, 90);
+    border-top: 0;
+    background-color: rgb(255, 237, 71);
+}
+
+#form>input{
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Press Start 2P', system-ui;
+}
+
+#answer{
+    width: 80%;
+    padding: 1;
+    border: none;
+    font-size: 20px;
+    padding: 0 15px;
+}
+#answer:focus{
+    outline: none;
+}
+
+.button{
+    width: 21%;
+    padding: 10px;
+    border: none;
+    background-color: rgb(255, 237, 71);
+    border-left: 10px solid rgb(0, 0, 0);
+}
+.button:hover{
+    background-color: rgb(255, 242, 129);
+}
+
+
+.counter{
+    position: absolute;
+    font-size: 30px;
+    left: 2rem;
+    text-shadow: 3px 3px 0px black, 5px 5px 0px black;
+}
+
+.points{
+    position: absolute;
+    font-size: 30px;
+    left: 72%;
+    text-shadow: 3px 3px 0px black, 5px 5px 0px black;
+}
